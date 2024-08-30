@@ -1,0 +1,20 @@
+server:
+  port: 9696
+customer:
+  topic:
+    name: "customer-topic"
+spring:
+  application:
+    name: Kafka-consumer
+  kafka:
+    consumer:
+      auto-offset-reset: earliest
+      bootstrap-servers: "broker:9292"
+      group-id: "com.consumer"
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring:
+          json:
+            trusted:
+              packages: com.kafka.*
